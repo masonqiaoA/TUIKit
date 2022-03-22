@@ -13,12 +13,17 @@
 ### Q:  iOS组件中如何监听谁在说话？ 
 
 **A:**  可以通过下面方法来判断 volume: 说话者的音量, 取值范围0 - 100
-        -(void)onUserVoiceVolume:(NSString *)uid volume:(UInt32)volume
-        NS_SWIFT_NAME(onUserVoiceVolume(uid:volume:));
+```
+    -(void)onUserVoiceVolume:(NSString *)uid volume:(UInt32)volume
+    NS_SWIFT_NAME(onUserVoiceVolume(uid:volume:));
+```
         
 ### Q:  iOS怎么实现一对多呼叫？
 
-**A:**  可以在呼叫方法传多个用户id： - (void)call:(NSArray<NSString *> *)userIDs type:(TUICallingType)type NS_SWIFT_NAME(call(userIDs:type:));
+**A:**  可以在呼叫方法传多个用户id： 
+```
+- (void)call:(NSArray<NSString *> *)userIDs type:(TUICallingType)type NS_SWIFT_NAME(call(userIDs:type:));
+```
         
 ### Q：必须要在应用内才能收到通话请求吗?
 
@@ -31,17 +36,19 @@
 [iOS离线接入指引](https://github.com/tencentyun/TUICalling/blob/main/iOS/iOS%20%E7%A6%BB%E7%BA%BF%E6%8E%A8%E9%80%81%E6%8E%A5%E5%85%A5%E6%8C%87%E5%BC%95.md)
 
 ### Q：无法拨打电话
-**A：** 1. 查看是否进入TRTC房间失败;
+**A：** 
+1. 查看是否进入TRTC房间失败;
    
    可以监听 `onEnterRoom`，返回值result小于0，说明进房失败；大于0，进房成功。
 
 2. 检查请求信令是否发送成功，在log中搜索
-   ```
+
+```
    //失败
    invite failed 
    //成功
    invite success
-   ```        
+```
 
 ****  
         
@@ -81,12 +88,13 @@
 
         
 ### Q:  iOS版本demo下载后编译报错？
+
 ```
 TUILiveRoom/TRTC (from `./`) was resolved to 1.0.0, which depends on
       TXIMSDK_Plus_iOS (~> 5.7.1435)
 ```
 
-问题原因： Podfile.lock IMSDK版本库依赖不一致导致pod install失败
+**A：** 问题原因： Podfile.lock IMSDK版本库依赖不一致导致pod install失败
 
 处理建议： 需要更新Pofile.lock 文件 或者 直接Gtihub仓库删除 Podfile.lock
 
