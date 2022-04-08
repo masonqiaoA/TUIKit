@@ -115,5 +115,8 @@ TUILiveRoom/TRTC (from `./`) was resolved to 1.0.0, which depends on
 
 ## 其他
 
-### 怎么知道签名有效时间，是否可以修改?
+### Q: pod install 遇到curl SSL错误:SSL certificate problem: unable to get local issuer certificate
+**A：**快速处理：pod install 时忽略SSL校验，设置本地curl配置信息` echo insecure >> ~/.curlrc`
+
+### Q: 怎么知道签名有效时间，是否可以修改?
 **A：** 账号问题请查看官网文档：[账号鉴权相关问题](https://cloud.tencent.com/document/product/269/32484#.E5.A6.82.E4.BD.95.E7.94.9F.E6.88.90-usersig.EF.BC.9F)
